@@ -2,23 +2,23 @@ using Microsoft.AspNetCore.Mvc;
 using FisherInsuranceApi.Data;
 using FisherInsuranceApi.Models;
 
-[Route("api/auto/quotes")]
- public class AutoController : Controller
+[Route("api/quotes")]
+ public class QuotesController : Controller
  {
      private IMemoryStore db;
-    public AutoController(IMemoryStore repo)
+    public QuotesController(IMemoryStore repo)
     {
      db = repo;
     } 
 
-     // POST api/auto/quotes
+     // POST api/quotes
  [HttpPost]
  public IActionResult Post([FromBody]Quote quote)
  {
  return Ok(db.CreateQuote(quote));
  }
 
-// GET api/auto/quotes/5
+// GET api/quotes/5
  [HttpGet("{id}")]
  public IActionResult Get(int id)
  {
@@ -31,14 +31,14 @@ public IActionResult GetQuotes()
  return Ok(db.RetrieveAllQuotes);
 } 
 
-// PUT api/auto/quotes/id
+// PUT api/quotes/id
  [HttpPut("{id}")]
  public IActionResult Put(int id, [FromBody]Quote quote)
  {
  return Ok(db.UpdateQuote(quote)); 
  }
 
- // DELETE api/auto/quotes/id
+ // DELETE api/quotes/id
  [HttpDelete("{id}")]
  public IActionResult Delete(int id)
  {
