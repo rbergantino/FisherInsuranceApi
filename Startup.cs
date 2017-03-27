@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using FisherInsuranceApi.Data;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace FisherInsuranceApi
 {
@@ -33,7 +34,7 @@ namespace FisherInsuranceApi
             services.AddMvc();
             services.AddIdentity<ApplicationUser, IdentityRole>(config =>
             {
-             config.User.RequireUniqueEmail = true;
+            config.User.RequireUniqueEmail = true;
             config.Password.RequireNonAlphanumeric = false;
             config.Cookies.ApplicationCookie.AutomaticChallenge = false;
             })
