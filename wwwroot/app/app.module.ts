@@ -13,7 +13,8 @@ import { ClaimsComponent } from './components/claims/claims.component';
 import { QuotesComponent } from './components/quotes/quotes.component';
 
 import { AppRouting } from './app.routing';
-
+import { AuthHttp } from "./auth.http";
+import { AuthService } from "./auth.service";
 
 @NgModule({
     declarations: [
@@ -30,10 +31,11 @@ import { AppRouting } from './app.routing';
         FormsModule,
         ReactiveFormsModule,
         RouterModule,
-        AppRouting 
+        AppRouting
     ],
     providers: [
-
+        AuthService,
+        AuthHttp
     ],
     bootstrap: [
         AppComponent
